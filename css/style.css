@@ -1,0 +1,641 @@
+/**
+ *  Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  
+ *  Licensed under the Apache License, Version 2.0 (the "License").
+ *  You may not use this file except in compliance with the License.
+ *  A copy of the License is located at
+ *  
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ *  or in the "license" file accompanying this file. This file is distributed 
+ *  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either 
+ *  express or implied. See the License for the specific language governing 
+ *  permissions and limitations under the License.
+ */
+ 
+/* Global styles */
+html {
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    cursor: default;
+    font-weight: 100;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background-color: #eee;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 70px;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #20232a;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+h1.title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 200;
+    margin-right: 20px;
+    margin-top: -3px;
+}
+
+.header .btn {
+    margin-top: -4px;
+    padding-top: 8px;
+}
+
+.header-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Hero */
+.hero {
+    width: 100%;
+    box-sizing: border-box;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.hero-title {
+    margin-top: 0;
+}
+
+.hero-image {
+    background-image: url('../img/city.hero.png');
+    background-size: cover;
+    margin: auto;
+    width: 100%;
+    height: 300px;
+    opacity: 0.18;
+    position: absolute;
+}
+
+.hero-content {
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    padding: 10px 16px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.21);
+    background-color: #ff9800;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ec8d00;
+}
+
+.btn-disabled:hover {
+    background-color: #c2c2c2 !important;
+}
+
+.btn-disabled {
+    background-color: #c2c2c2 !important;
+    cursor: not-allowed;
+}
+
+.btn-autow {
+    width: auto !important;
+}
+
+.btn-fw {
+    width: 150px;
+}
+
+.btn-github {
+    background-color: #d1d2d3;
+    color: #000;
+}
+
+.btn-github:hover {
+    background-color: #a8a8a8;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    width: auto !important;
+}
+
+.btn-danger:hover {
+    background-color: #ba000d;
+}
+
+/* Floating action button */
+.btn-fab {
+    width: 80px;
+    height: 80px;
+    background-color: #FF9800;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    cursor: pointer;
+}
+
+.btn-fab-highlight {
+    animation: 0.7s alternate-reverse infinite flash;
+}
+
+.btn-fab-hf {
+    z-index: 10000 !important;
+    background-color: #a86200 !important;
+    cursor: not-allowed;
+}
+.btn-fab-hf path {
+    fill: rgb(168, 168, 168) !important;
+}
+
+.btn-fab:hover {
+    background-color: #ec8d00;
+}
+
+.btn-simulation-fab {
+    margin-top: -35px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    margin: 4px;
+    border: solid 1px #d6d6d6;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-flow: column;
+}
+
+.card-experiment {
+    width: 290px;
+    height: 250px;
+}
+
+.card-content {
+    padding: 10px;
+    align-self: flex;
+}
+
+.card-action {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-image {
+    flex: 1;
+    background-size: cover;
+}
+
+.card-title {
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.card-container .card-subtitle {
+    font-size: 15px;
+}
+
+.card-subtitle {
+    font-size: 17px;
+}
+
+.card-info {
+    font-size: 13px;
+    padding: 10px 0;
+    margin: 0;
+    color: #888;
+}
+
+.card .btn {
+    font-size: 13px;
+    width: 80px;
+}
+
+.sidebar .card {
+    margin-bottom: 20px;
+}
+
+.overflow {
+    overflow: visible;
+}
+
+/* Utility */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.section {
+    margin: 20px 0;
+}
+
+.m-left {
+    margin-left: 20px;
+}
+
+.centered {
+    margin: auto;
+}
+
+/* Experiment page */
+.content {
+    display: flex;
+    position: absolute;
+    
+    top: 70px; left: 0; bottom: 0; right: 0;
+}
+
+.visualiser {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+}
+
+.visualisation {
+    flex: 1;
+    border: none;
+    min-width: 0;
+    min-height: 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.controls {
+    background-color: #20232a;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.sidebar {
+    border-right: solid 1px #d6d6d6;
+    overflow-y: scroll;
+    max-width: 35%;
+    min-width: 400px;
+    padding: 20px;
+}
+
+.control {
+    margin: 10px;
+    width: 191px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.input {
+    width: 170px;
+    font-size: 15px;
+    margin: 15px;
+}
+
+.output-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.output {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: solid 1px #979797;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+    background-color: #fff;
+}
+
+.output-label {
+    max-width: 90px;
+}
+
+.output-value {
+    font-size: 20px;
+}
+
+/* Emulator controller */
+.emulator-controls-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Hyperparams */
+.hyperparams {
+    padding: 10px;
+}
+
+/* Slider */
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 170px;
+    height: 6px;
+    outline: none;
+    border-radius: 3px;
+    background-color: #d8d8d8;
+}
+
+.slider-hyper {
+    width: 100%;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    border: none;
+    background: #ff9800;
+}
+
+.slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    border: none;
+    background: #ff9800;
+}
+
+.slider-output {
+    padding: 9px 13px;
+    width: 20px;
+    height: 20px;
+    background-color: #ff9800;
+    text-align: center;
+    color: #fff;
+    border-radius: 20px;
+    margin-left: -10px;
+    cursor: pointer;
+}
+
+.input-disabled .slider::-webkit-slider-thumb {
+    background: #979797 !important;
+}
+
+.input-disabled .slider::-webkit-slider-thumb {
+    background: #979797 !important;
+}
+
+.input-disabled .slider::-webkit-slider-thumb {
+    background: #979797 !important;
+}
+
+.input-disabled .slider-output {
+    background-color: #979797 !important;
+}
+
+/* Hover hints */
+.hint {
+    visibility: hidden;
+    max-width:300px;
+    background-color: #20232a;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    padding: 10px;
+    margin-top:-5px;
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    border-radius: 5px;
+}
+
+.hint::after { /* Arrow */
+    content: " ";
+    position: absolute;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    top: 100%;
+    left: 15px;
+}
+
+.hoverable:hover .hint {
+    visibility: visible;
+}
+
+/* Select box */
+select {
+    width: 180px;
+    margin: 10px;
+    padding: 5px 15px;
+    font-size: 16px;
+    border: 0px;
+    height: 36px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.21);
+    border-radius: 5px;
+    background-color: rgb(248, 248, 248);
+  }
+  
+  /* CAUTION: IE hackery ahead */
+  select::-ms-expand { 
+      display: none; /* remove default arrow on ie10 and ie11 */
+  }
+  
+  /* target Internet Explorer 9 to undo the custom arrow */
+  @media screen and (min-width:0\0) {
+      select {
+          background:none\9;
+          padding: 5px\9;
+      } 
+  }
+  
+
+/* Tutorial page */
+.tutorial {
+    background-color: rgba(0, 0, 0, .38);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutorial-card {
+    width: 500px;
+    z-index: 10000;
+    max-width: 90%;
+}
+
+[id^=chart] {
+    margin-top: 20px;
+    cursor: crosshair;
+}
+
+/* Tab view */
+.tabs {
+    background-color: #474B52;
+    width: 100%;
+    height: 60px;
+    display: none;
+    justify-content: center;
+}
+
+.tab {
+    text-align: center;
+    width: 160px;
+    color: #fff;
+    padding: 18px 0;
+    text-transform: uppercase;
+}
+
+.tab-active {
+    border-bottom: solid 3px #FF9800;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.error h1 {
+    margin-bottom: 10px;
+}
+
+.error p {
+    margin-top: 0;
+}
+
+#emulator_controller {
+    padding-bottom: 15px;
+}
+
+.mobile-container {
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    position: absolute;
+    background-color: #eee;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Respoinsiveness */
+@media only screen and (max-width: 400px) {
+    h1.title {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .tabs {
+        display: flex;
+    }
+    
+    .card-container {
+        justify-content: space-between;
+    }
+
+    .card-experiment {
+        flex-grow: 1;
+    }
+
+    .content {
+        top: 130px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .btn-github {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .control-progress {
+        display: none;
+    }
+}
+
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+}
+
+@keyframes flash {
+    from {
+        background-color: #FF9800;
+    }
+    to {
+        background-color: rgb(255, 187, 85);
+    }
+}
