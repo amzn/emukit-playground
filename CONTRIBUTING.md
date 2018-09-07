@@ -31,7 +31,7 @@ To send us a pull request, please:
 
 1. Fork the repository.
 2. Modify the source; please focus on the specific change you are contributing. If you also reformat all the code, it will be hard for us to focus on your change.
-3. Ensure local tests pass.
+3. Ensure your changes work as intended across multiple browsers and that your code is [linted](#linting).
 4. Commit to your fork using clear commit messages.
 5. Send us a pull request, answering any default questions in the pull request interface.
 6. Pay attention to any automated CI failures reported in the pull request, and stay involved in the conversation.
@@ -41,7 +41,34 @@ GitHub provides additional document on [forking a repository](https://help.githu
 
 
 ## Finding contributions to work on
-Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels ((enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any ['help wanted'](https://github.com/amzn/emukit-playground/labels/help%20wanted) issues is a great place to start. 
+Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels ((enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any ['help wanted'](https://github.com/amzn/emukit-playground/labels/help%20wanted) issues is a great place to start.
+
+## Setting up a development environment
+Once you have the repository cloned from git, you must host a server to test the Playground. The easiest way to host the Playground is by using [http-server](https://www.npmjs.com/package/http-server) (assuming you have [node.js](https://nodejs.org/) and [npm](https://npmjs.com) installed):
+
+```bash
+git clone https://github.com/amzn/emukit-playground
+cd EmukitPlayground
+npm install -g http-server
+http-server
+```
+
+## Linting
+To ensure code style consistency, we use eslint. To install eslint, ensure you have [node.js](https://nodejs.org/) and [npm](https://npmjs.com) installed, then run
+
+```bash
+npm install -g eslint
+```
+
+to globally install eslint. After making changes, navigate to the root of the repository and run
+
+```bash
+eslint js
+```
+
+Some errors can be automatically fixed (such as changing from space indentation to tab indentation) byusing the `--fix` option.
+
+Once you have ensured there are no errors, you can submit a pull request with your changes.
 
 
 ## Code of Conduct

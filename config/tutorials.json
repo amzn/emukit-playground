@@ -1,0 +1,248 @@
+{
+    "introduction": {
+        "order": 1,
+        "title": "@title",
+        "description": "@description",
+        "estimated_time": 3,
+        "image": "img/sim.png",
+        "simulator": {
+            "name": "taxi",
+            "outputs": [ "profit", "missed", "pickUpTime" ],
+            "steps": 1000
+        },
+        "tutorial_steps": [
+            { "highlight": "self" },
+            { "highlight": "inputs" },
+            { "highlight": "speedSlider" },
+            { "highlight": "playButton", "action": "playSimulation" },
+            { "highlight": "simulator", "trigger": "midSimulation" },
+            { "highlight": "simulator", "trigger": "midSimulation" },
+            { "highlight": "outputs", "trigger": "midSimulation" }
+        ],
+        "end_card": {
+            "next_tutorial": "bayesian_optimization",
+            "extra_action": "Try changing different inputs of the simulator to see the effect on the outputs."
+        }
+    },
+    "bayesian_optimization": {
+        "order": 2,
+        "title": "@title",
+        "description": "@description",
+        "estimated_time": 5,
+        "image": "img/bayes.png",
+        "simulator": {
+            "name": "taxi",
+            "inputs": [ "taxiCount" ],
+            "outputs": [ "profit", "missed", "pickUpTime" ],
+            "steps": 1000
+        },
+        "emulators": [
+            {
+                "id": "taxisvsprofit",
+                "title": "@emulator1/title",
+                "input": "taxiCount",
+                "output": "profit",
+                "xAxisLabel": "Number of Taxis",
+                "yAxisLabel": "Profit ($)",
+                "hyperparameters": {
+                    "variance": 5000,
+                    "length": 500,
+                    "noise": 0.005
+                },
+                "showOnStep": 8,
+                "showSensitivity": false
+        }],
+        "tutorial_steps": [
+            { 
+                "highlight": "self",
+                "simulator_values": {
+                    "gridSize": 5,
+                    "taxiCount": 20,
+                    "journeyFrequency": 50,
+                    "baseFare": 5,
+                    "costPerTile": 5,
+                    "maxMultiplier": 2
+                }
+            },
+            { 
+                "highlight": "playButton", 
+                "action": "playSimulation",
+                "simulator_values": {
+                    "taxiCount": 10
+                }
+            },
+            { "highlight": "simulator", "trigger": "midSimulation" },
+            { 
+                "highlight": "playButton", 
+                "trigger": "endSimulation",
+                "simulator_values": {
+                    "taxiCount": 90
+                },
+                "action": "playSimulation" 
+            },
+            { "highlight": "simulator", "trigger": "midSimulation" },
+            { 
+                "highlight": "playButton", 
+                "trigger": "endSimulation",
+                "simulator_values": {
+                    "taxiCount": 30
+                },
+                "action": "playSimulation"
+            },
+            { "highlight": "profit", "trigger": "midSimulation" },
+            { "highlight": "self", "trigger": "endSimulation" },
+            { "highlight": "taxisvsprofit" },
+            { "highlight": "taxisvsprofit" },
+            { 
+                "highlight": "taxisvsprofit",
+                "simulator_values": {
+                    "taxiCount": 65
+                }
+            },
+            { "highlight": "playButton", "action": "playSimulation" },
+            { 
+                "highlight": "taxisvsprofit",
+                "simulator_values": {
+                    "taxiCount": 40
+                },
+                "trigger": "endSimulation"
+            },
+            { "highlight": "playButton", "action": "playSimulation" },
+            { "highlight": "taxisvsprofit", "trigger": "endSimulation" }
+        ],
+        "end_card": {
+            "next_tutorial": "sensitivity_analysis",
+            "extra_action": "@end_card/action",
+            "simulator_values": {
+                "journeyFrequency": 60,
+                "costPerTile": 3,
+                "baseFare": 8,
+                "maxMultiplier": 1.5,
+                "gridSize": 4
+            }
+        }
+    },
+    "sensitivity_analysis": {
+        "order": 3,
+        "title": "@title",
+        "description": "@description",
+        "estimated_time": 8,
+        "image": "img/sensitivity.png",
+        "simulator": {
+            "name": "taxi",
+            "inputs": [ "costPerTile" ],
+            "outputs": [ "profit", "missed", "pickUpTime" ],
+            "steps": 1000
+        },
+        "emulators": [
+            {
+                "id": "costperkmvsprofit",
+                "title": "@emulator1/title",
+                "input": "costPerTile",
+                "output": "profit",
+                "xAxisLabel": "Cost per km ($)",
+                "yAxisLabel": "Profit ($)",
+                "hyperparameters": {
+                    "variance": 10000,
+                    "length": 16,
+                    "noise": 0.0225
+                },
+                "showSensitivity": true
+            },
+            {
+                "id": "costperkmvspickuptime",
+                "title": "@emulator2/title",
+                "input": "costPerTile",
+                "output": "pickUpTime",
+                "xAxisLabel": "Cost per km ($)",
+                "yAxisLabel": "Mean pick-up time",
+                "hyperparameters": {
+                    "variance": 28,
+                    "length": 11,
+                    "noise": 0.0225
+                },
+                "showSensitivity": true
+            },
+            {
+                "id": "costperkmvsmissed",
+                "title": "@emulator3/title",
+                "input": "costPerTile",
+                "output": "missed",
+                "xAxisLabel": "Cost per km ($)",
+                "yAxisLabel": "Customers Missed",
+                "hyperparameters": {
+                    "variance": 155,
+                    "length": 10,
+                    "noise": 0.05
+                },
+                "showSensitivity": true
+            }
+        ],
+        "tutorial_steps": [
+            { "highlight": "self" },
+            { "highlight": "self" },
+            { "highlight": "self" },
+            { 
+                "highlight": "playButton", 
+                "action": "playSimulation",
+                "simulator_values": {
+                    "costPerTile": 1
+                }
+            },
+            { 
+                "trigger": "endSimulation",
+                "highlight": "playButton", 
+                "action": "playSimulation",
+                "simulator_values": {
+                    "costPerTile": 5
+                }
+            },
+            { 
+                "trigger": "endSimulation",
+                "highlight": "playButton", 
+                "action": "playSimulation",
+                "simulator_values": {
+                    "costPerTile": 10
+                }
+            },
+            { "highlight": "self", "trigger": "endSimulation" },
+            { "highlight": "costperkmvsprofit", "simulator_values": { "costPerTile": 5 } },
+            { "highlight": "costperkmvsprofit", "simulator_values": { "costPerTile": 5 } },
+            { "highlight": "costperkmvspickuptime", "simulator_values": { "costPerTile": 5 } },
+            { "highlight": "costperkmvspickuptime", "simulator_values": { "costPerTile": 5 } },
+            { "highlight": "costperkmvsmissed", "simulator_values": { "costPerTile": 5 } },
+            {
+                "highlight": "playButton", 
+                "action": "playSimulation",
+                "simulator_values": {
+                    "costPerTile": 15
+                }
+            },
+            { 
+                "trigger": "endSimulation",
+                "highlight": "playButton", 
+                "action": "playSimulation",
+                "simulator_values": {
+                    "costPerTile": 20
+                }
+            },
+            { "trigger": "endSimulation", "highlight": "costperkmvsprofit", "simulator_values": { "costPerTile": 13 } },
+            { "highlight": "costperkmvsprofit", "simulator_values": { "costPerTile": 13 } },
+            { "highlight": "costperkmvspickuptime", "simulator_values": { "costPerTile": 13 } },
+            { "highlight": "costperkmvspickuptime", "simulator_values": { "costPerTile": 13 } },
+            { "highlight": "costperkmvsmissed", "simulator_values": { "costPerTile": 13 } },
+            { "highlight": "self" },
+            { "highlight": "self" }
+        ],
+        "end_card": {
+            "extra_action": "@end_card/action",
+            "simulator_values": {
+                "journeyFrequency": 60,
+                "costPerTile": 3,
+                "baseFare": 8,
+                "maxMultiplier": 1.5,
+                "gridSize": 4
+            }
+        }
+    }
+}

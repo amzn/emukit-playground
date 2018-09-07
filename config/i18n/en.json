@@ -1,0 +1,264 @@
+{
+    "core": {
+        "title": "Emukit Playground",
+        "heroTitle": "Welcome to the Emukit Playground",
+        "tutorials": "Tutorials",
+        "sandbox": "Sandbox",
+        "btnHome": "Return to home",
+        "btnFork": "Fork on GitHub",
+        "btnLaunch": "Launch",
+        "btnBack": "Back",
+        "btnNext": "Next",
+        "btnNextTutorial": "Next tutorial",
+        "btnTour": "Take a tour",
+        "btnStartLearning": "Start learning",
+        "minutes": "minutes",
+        "simulate": "Simulate",
+        "visualise": "Visualise",
+        "emulate": "Emulate",
+        "emulator": "Emulator",
+        "emulators": "Emulators",
+        "simulationInputs": "Simulation Inputs",
+        "simulationOutputs": "Simulation Outputs",
+        "simulationStatus": "Simulation status",
+        "simulationPaused": "Paused",
+        "simulationRunning": "Running",
+        "simulationFinished": "Finished",
+        "simulationProgress": "Progress",
+        "simulationSpeed": "Simulation speed",
+        "simulationReady": "Ready",
+        "tutorialEndCardTitle": "You've completed the $0 tutorial!",
+        "variance": "Variance",
+        "varianceDescription": "The variance is the prior belief on how much output of the simulator can change with respect to the input",
+        "length": "Length scale",
+        "lengthDescription": "The length scale is how close two points in the input domain have to be to be influencing each other",
+        "noise": "Noise",
+        "noiseDescription": "The noise is the variation in the collected data, meaning how much the outputs can change if we run the simulator several times in the same location",
+        "removeData": "Remove data points",
+        "removeEmulator": "Remove emulator",
+        "resetEmulators": "Reset all emulators",
+        "add": "Add",
+        "nextTutorial": "When you are ready, you may continue to the next tutorial."
+    },
+    "tutorial": {
+        "introduction": {
+            "title": "Introduction to Simulation",
+            "description": "Learn about simulation and discover where simulators are used.",
+            "slide1": {
+                "title": "Introduction to Simulation",
+                "description": "Simulation is widely used in a number of industries as a method of modeling complex systems. In this simulator, taxis travel around a city picking up and dropping of passengers."
+            },
+            "slide2": {
+                "title": "Simulation inputs",
+                "description": "The inputs to the simulator can be set here. Hover (or tap on) the input titles to learn more about each input."
+            },
+            "slide3": {
+                "title": "Simulation speed",
+                "description": "The speed of a simulation can be changed at any time with this slider."
+            },
+            "slide4": {
+                "title": "Run a simulation",
+                "description": "To start a simulation, click on the play button."
+            },
+            "slide5": {
+                "title": "Simulator",
+                "description": "Here you can visualise the simulation to understand what the simulation is doing. Use the left mouse button to rotate and the scroll wheel to zoom."
+            },
+            "slide6": {
+                "title": "Journeys",
+                "description": "The blue bars represent the pick-up location of a journey, and the red bars represent the drop-off location. The height of the bars represents the time since the journey was created."
+            },
+            "slide7": {
+                "title": "Simulation outputs",
+                "description": "The outputs of the simualator are shown here."
+            },
+            "end_card": {
+                "action": "The journey frequency and number of roads have been changed. Try to find out the new optimal profit by training the emulator."
+            }
+        },
+        "bayesian_optimization": {
+            "title": "Bayesian Optimization",
+            "description": "Find out how emulators can be used to optimize a variable.",
+            "slide1":{  
+                "title": "Bayesian Optimization",
+                "description":"We may want to answer the question, “what is the optimal number of taxis to generate the most profit?” One approach would be to repeatedly run the simulator many times, each time changing the number of taxis and observing the profit to try and find the maximum value."
+            },
+            "slide2":{  
+                "description":"Try running the simulator to see what would happen if we only have 10 taxis. Click the play button to begin the simulation."
+            },
+            "slide3":{  
+                "description":"Many passengers are waiting a very long time before being picked up by a taxi. There aren’t enough taxis to fulfill all the demand, and as a result profit opportunities are being missed."
+            },
+            "slide4":{  
+                "description":"Let’s increase the number of taxis to 90. Click the play button to begin the simulation."
+            },
+            "slide5":{  
+                "description":"Now there are too many taxis. This impacts profits as we are paying fuel and driver costs for taxis which are empty and generating no profit. Our intuition tells us that the optimal number of taxis must be somewhere in the middle."
+            },
+            "slide6":{  
+                "description":"Let’s try once again with 30 taxis. Click the play button to begin the simulation."
+            },
+            "slide7":{  
+                "description":"The profit is higher than both of our previous attempts, but should we increase or decrease the number of taxis from here?"
+            },
+            "slide8":{  
+                "description":"The number of times we would have to run a simulation to answer this question quickly adds up. In many real-world applications, these simulation runs can be very costly and time consuming."
+            },
+            "slide9":{  
+                "description":"Instead we can construct an emulator that models the relationship between the inputs and outputs of simulators. In this case, we use an emulator to model how changing the number of taxis affects our profit."
+            },
+            "slide10":{  
+                "description":"Each time we complete a run of the simulation, we add a data point (shown in orange). The emulator then generates the predicted mean of the function (shown in black) and the uncertainty in the prediction (shown in  gray)."
+            },
+            "slide11":{  
+                "description":"Lets explore the function when there are 65 taxis. Since we have not observed the outputs of the simulator around this point, the optimum of the function could be contained in this region of high uncertainty."
+            },
+            "slide12":{  
+                "description":"Run the simulator with 65 taxis. Click the play button to begin the simulation."
+            },
+            "slide13":{  
+                "description":"The uncertainty in this area has reduced, and the emulator still shows us that the predicted maximum of the function is around 40 taxis. Now lets exploit this region to increase the precision of the emulator around the optimum."
+            },
+            "slide14":{  
+                "description":"Run the simulation with 40 taxis. Click the play button to begin the simulation."
+            },
+            "slide15":{  
+                "description":"Too much exploration results in a lack of precision around the optimum, while too much exploitation means we may miss the true optimum of the function. It is important to balance exploration and exploitation in order to ensure we efficiently find the true optimum value."
+            },
+            "end_card": {
+                "action": "The journey frequency and number of roads have been changed. Try to find out the new optimal profit by training the emulator."
+            },
+            "emulator1": {
+                "title": "Number of Taxis vs Profit"
+            }
+        },
+        "sensitivity_analysis": {
+            "title": "Sensitivity Analysis",
+            "description": "Learn about sensitivity analysis and discover how emulators can be used to find how sensitive an input is.",
+            "slide1": {
+                "title": "Sensitivity Analysis",
+                "description": "A common reason we may build a simulator is so that we can answer ‘what if’ questions, such as “what would happen if we increased our prices?”"
+            },
+            "slide2": {
+                "description": "Our intuition tells us that while increasing prices may result in additional profit, increasing them by too much will lead to a fall in demand as potential passengers use other means (such as our competitors) to get to their destinations."
+            },
+            "slide3": {
+                "description": "We can construct an emulator that models the relationship between the cost per kilometer travelled against different outputs."
+            },
+            "slide4": {
+                "description": "Run the simulator to gather some data. Click the play button to start the simulation."
+            },
+            "slide5": {
+                "description": "Continue to train the emulator on a couple of further points. Click the play button to start the simulation."
+            },
+            "slide6": {
+                "description": "Run the simulator once again with a higher price. Click the play button to start the simulation."
+            },
+            "slide7": {
+                "description": "Now that we have trained the emulator with some points, we can use sensitivity analysis to see how sensitive (i.e. how much the output will change by increasing or decreasing the input) the cost per kilometers driven is for each output."
+            },
+            "slide8": {
+                "description": "The orange line denotes the derivative of the mean at the given input point. The gradient of this line tells us how sensitive this input is at the given point."
+            },
+            "slide9": {
+                "description": "We can see that when there are 5 taxis, if we were to add a 6th taxi we could expect a profit increase of around $1.5k."
+            },
+            "slide10": {
+                "description": "When we observe the cost per kilometer vs the mean pick-up time, we see that the gradient of the sensitivity is almost flat. This means that adding or removing taxis at this point will have little to no effect."
+            },
+            "slide11": {
+                "description": "This aligns with our intuition, since changing the cost of the journey shouldn’t increase the time it takes for a taxi to pick a given passenger up."
+            },
+            "slide12": {
+                "description": "We also observe the same relationship with missed customers. While we are increasing the price, passengers are still willing to pay the additional cost, hence we still have the same demand and thus don’t miss any additional customers."
+            },
+            "slide13": {
+                "description": "Lets train the emulator with some further points. Click the play button to start the simulation."
+            },
+            "slide14": {
+                "description": "Train the emulator with one more point. Click the play button to start the simulation."
+            },
+            "slide15": {
+                "description": "We can see that the relationship observed once the cost per kilometer goes above $10 changes. At this point, passengers start to decide against taking the taxis if their journey will cost too much."
+            },
+            "slide16": {
+                "description": "When there are 13 taxis, the profit starts to level out. At this point if we were to increase or decrease the cost per km, we would observe a lower overall profit."
+            },
+            "slide17": {
+                "description": "However when we consider mean pick-up time, we observe that increasing the cost per km will reduce the mean pick-up time by around 25 minutes per $1 increase."
+            },
+            "slide18": {
+                "description": "While this may initially seem counter-intuitive, when the price is higher there is lower demand meaning the remaining passengers can be picked up faster."
+            },
+            "slide19": {
+                "description": "This is confirmed when we look at the sensitivity of customers missed. We see that increasing the cost per km will increase the numbers of customers missed by around 50 passengers per $1 increase."
+            },
+            "slide20": {
+                "description": "We can see that even though we have only trained the emulator on 5 data points, we have already gather alot of information about the underlying relationships, and have the ability to perform sensitivity analysis at any point within the input domain. Performing sensitivity analysis without the help of an emulator would require many more simulation runs, resulting in a significant increase of both the cost and time required."
+            },
+            "slide21": {
+                "description": "By using emulators, we are able to determine the sensitivities of many inputs and outputs at the same time. This further decreases the requirement for additional simulation runs."
+            },
+            "end_card": {
+                "action": "Explore the sensitivity of the input at different points."
+            },
+            "emulator1": {
+                "title": "Cost per km vs Profit"
+            },
+            "emulator2": {
+                "title": "Cost per km vs Mean pick-up time"
+            },
+            "emulator3": { 
+                "title": "Cost per km vs Customers missed"
+            }
+        }
+    },
+    "simulator": {
+        "taxi": {
+            "profit": {
+                "title": "Profit",
+                "description": "The total net profit generated"
+            },
+            "customersMissed": {
+                "title": "Customers missed",
+                "description": "The total number of customers missed"
+            },
+            "meanPickUpTime": {
+                "title": "Mean pick-up time",
+                "description": "The average time it takes a taxi to pick up a passenger"
+            },
+            "profitPerJourney": {
+                "title": "Profit per journey",
+                "description": "The average profit generated in a single journey"
+            },
+            "journeysCompleted": {
+                "title": "Journeys completed",
+                "description": "The total number of journeys completed"
+            },
+            "numRoads": {
+                "title": "Number of roads",
+                "description": "The number of roads simulated"
+            },
+            "numTaxis": {
+                "title": "Number of taxis",
+                "description": "The number of taxis simulated"
+            },
+            "journeyFrequency": {
+                "title": "Journey frequency",
+                "description": "The frequency of journey requests"
+            },
+            "baseFare": {
+                "title": "Base fare",
+                "description": "The starting fare on the meter"
+            },
+            "costPerTile": {
+                "title": "Cost per km",
+                "description": "The cost to the passengers per kilometer driven"
+            },
+            "maxMultiplier": {
+                "title": "Demand multiplier",
+                "description": "During peak times passengers will be charged more. The multiplier determines the maximum charge. For example, a demand multiplier of 2x will charge at most 2 times the regular price of the journey."
+            }
+        }
+    }
+}

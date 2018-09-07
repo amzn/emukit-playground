@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.4.0" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+  <asset>
+    <created>2018-07-0611:23 AM11:23:20:254</created>
+    <modified>2018-07-0611:23 AM11:23:20:254</modified>
+    <unit meter="1.0" />
+  </asset>
+  <library_images>
+    <image id="RoadStraight-image" name="RoadStraight-image">
+      <init_from>materials/RoadStraight.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="RoadStraight-material" name="RoadStraight-material">
+      <instance_effect url="#RoadStraight-shader-fx" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="RoadStraight-shader-fx" name="RoadStraight-shader-fx">
+      <profile_COMMON>
+        <newparam sid="RoadStraight-image-surface">
+          <surface type="2D">
+            <init_from>RoadStraight-image</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="RoadStraight-image-sampler">
+          <sampler2D>
+            <source>RoadStraight-image-surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="standard">
+          <lambert>
+            <ambient>
+              <color sid="ambient">0.0 0.0 0.0 1.0</color>
+            </ambient>
+            <diffuse>
+              <texture texcoord="CHANNEL0" texture="RoadStraight-image-sampler" />
+            </diffuse>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry name="Matrix_16" id="Matrix_16-lib">
+      <mesh>
+        <source id="Matrix_16-position">
+          <float_array id="Matrix_16-position-array" count="24">12.5 -0.5 -12.0 12.5 -1.5 -12.0 -12.5 -1.5 -12.0 -12.5 -0.5 -12.0 -12.5 -0.5 13.0 -12.5 -1.5 13.0 12.5 -1.5 13.0 12.5 -0.5 13.0 </float_array>
+          <technique_common>
+            <accessor source="#Matrix_16-position-array" stride="3" count="8">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Matrix_16-normal">
+          <float_array id="Matrix_16-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Matrix_16-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Matrix_16-uv">
+          <float_array id="Matrix_16-uv-array" count="48">0.015625 0.40625 0.015625 0.015625 0.40625 0.015625 0.40625 0.40625 0.4375 0.40625 0.4375 0.015625 0.828125 0.015625 0.828125 0.40625 0.015625 0.453125 0.015625 0.4375 0.40625 0.4375 0.40625 0.453125 0.4375 0.453125 0.4375 0.4375 0.828125 0.4375 0.828125 0.453125 0.015625 0.5 0.015625 0.484375 0.40625 0.484375 0.40625 0.5 0.4375 0.5 0.4375 0.484375 0.828125 0.484375 0.828125 0.5 </float_array>
+          <technique_common>
+            <accessor source="#Matrix_16-uv-array" stride="2" count="24">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Matrix_16-vertex">
+          <input semantic="POSITION" source="#Matrix_16-position" />
+        </vertices>
+        <polylist material="RoadStraight-material" count="6">
+          <input offset="0" semantic="VERTEX" source="#Matrix_16-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Matrix_16-normal" />
+          <input offset="2" semantic="TEXCOORD" source="#Matrix_16-uv" />
+          <vcount>4 4 4 4 4 4 </vcount>
+          <p>0 1 12 1 1 13 2 1 14 3 1 15 4 0 8 5 0 9 6 0 10 7 0 11 3 2 20 2 2 21 5 2 22 4 2 23 7 3 16 6 3 17 1 3 18 0 3 19 3 4 0 4 4 1 7 4 2 0 4 3 5 5 4 2 5 5 1 5 6 6 5 7 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="RoadStraight-scene" name="RoadStraight-scene">
+      <node sid="Matrix_16" id="Matrix_16" name="Matrix_16">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Matrix_16-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="RoadStraight-material" target="#RoadStraight-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene name="" sid="" url="#RoadStraight-scene" />
+  </scene>
+</COLLADA>
